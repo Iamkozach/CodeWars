@@ -1,0 +1,28 @@
+~~~~~~~~~~~~~~~~~~~~~~THERE IS A RESTRICTION~~~~~~~~~~~~~~~~~~~~~
+YOU SHOULD NOT DECLARE ANY LOCAL VARIABLES IN THE METHOD BODY !!!
+ATTENSION: if,for,foreach,while,do while,etc : Include a variable declaration!
+
+This time you are given a string that can be Empty or contain Letters,Digits,Symbols.
+Your task is to find the power of each digit raised on its index position and return the string without touching anything else(letters,symbols).
+Index for this kata starts at 1 !!!
+
+An extra thing to do is, if the sum of the digits in the given string is odd you have to
+insert in your string a "-" between every char, else (sum is even) insert a "+" between every char.
+'Between every char' doesnt include start and end of the string!
+Results of raised digits should be treated as one char,
+hence you will not insert a seperator inside them!
+
+
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+namespace Kata 
+{
+  public static class Problem
+  {
+    public static string RaiseDigitsIndex(this string str)
+    {
+        return string.Concat(string.Join(str.Where(x=>char.IsNumber(x)).Sum(n => n - 48) %2==0 ? "+": "-", str.Select((x,i) => char.IsDigit(x) ? Math.Pow(x - 48, i + 1).ToString() : x.ToString())));    }
+    }
+  }
+}
