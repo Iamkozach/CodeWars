@@ -1,0 +1,14 @@
+Complete the function/method so that it takes a PascalCase string and returns the string in snake_case notation.
+Lowercase characters can be numbers.
+If the method gets a number as input, it should return a string.
+
+
+
+using System;
+using System.Linq;
+
+public static class Kata 
+{
+    public static string ToUnderscore(int str) => str.ToString();
+    public static string ToUnderscore(string str) => string.Concat(str.Select(x => char.IsUpper(x) ? '_' + x.ToString() : x.ToString())).TrimStart('_').ToLower();
+}
