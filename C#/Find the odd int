@@ -1,0 +1,22 @@
+Given an array of integers, find the one that appears an odd number of times.
+There will always be only one integer that appears an odd number of times.
+
+
+
+public static int find_it(int[] seq)
+{
+    Dictionary<int, int> nums = new Dictionary<int, int>();
+
+    foreach (var n in seq)
+    {
+        if (!nums.ContainsKey(n))
+        {
+            nums.Add(n, 1);
+        }
+        else
+        {
+            nums[n]++;
+        }
+    }
+    return nums.Where(v => v.Value % 2 != 0).First().Key;
+}
