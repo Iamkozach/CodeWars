@@ -1,0 +1,18 @@
+Given n, take the sum of the digits of n. If that value has more than one digit,
+continue reducing in this way until a single-digit number is produced.
+The input will be a non-negative integer.
+Examples
+16  -->  1 + 6 = 7
+942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+
+
+
+using System.Linq;
+using System;
+public class Number
+{
+  public int DigitalRoot(long n)
+  {
+    return n.ToString().Length == 1? (int)n : DigitalRoot(n.ToString().Sum(x => x - '0'));
+  }
+}
