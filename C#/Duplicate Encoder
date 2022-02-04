@@ -1,0 +1,41 @@
+The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string,
+or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+Examples
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))((" 
+
+
+public static string DuplicateEncode(string word)
+{
+   StringBuilder sb = new StringBuilder();
+   Dictionary<char,int> dic = new Dictionary<char,int >();
+   foreach (var ch in word.ToLower())
+   {
+       if (!dic.Keys.Contains(ch))
+       {
+           dic.Add(ch,1);
+       }
+       else
+       {
+           dic[ch]++;
+       }
+   }
+   for (int i = 0; i < word.Length; i++)
+   {
+       if (dic.ContainsKey(word.ToLower()[i]))
+       {
+           if (dic[word.ToLower()[i]] >=2)
+           {
+               sb.Append(")");
+           }
+           else
+           {
+               sb.Append("(");
+           }
+       }
+   }
+   return sb.ToString(); 
+}
