@@ -1,0 +1,21 @@
+Task Overview
+Given a non-negative integer n, write a function to_binary/ToBinary which returns that number in a binary format.
+
+Documentation:
+Kata.ToBinary Method (Int32)
+Returns the binary representation of a non-negative integer as an integer.
+
+
+
+
+
+
+using System;
+
+public static class Kata
+{
+  public static int ToBinary(int n)
+  {
+    return  Int32.Parse(Convert.ToString(n, 2));
+  }
+}
