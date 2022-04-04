@@ -1,0 +1,16 @@
+When provided with a letter, return its position in the alphabet.
+
+Input :: "a"
+
+Ouput :: "Position of alphabet: 1"
+
+
+using System.Linq;
+
+public class Kata
+{
+  public static string Position(char alphabet)
+  {
+    return "Position of alphabet: " + string.Concat(alphabet.ToString().ToLower().Select(x => x - 96));
+  }
+}
