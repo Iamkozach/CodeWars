@@ -9,8 +9,8 @@ using System.Linq;
 
 public class Kata
 {
-  public static string Position(char alphabet)
-  {
-    return "Position of alphabet: " + string.Concat(alphabet.ToString().ToLower().Select(x => x - 96));
-  }
+   public static string Position(char alphabet)
+   {
+       return $"Position of alphabet: {char.ToLower(alphabet) - 96 }";
+   }
 }
