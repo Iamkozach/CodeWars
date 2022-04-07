@@ -28,3 +28,16 @@ public class Kata
        return pplIn;
    }
 }
+
+----------------------------------------------------------------------
+
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+  public static int Number(List<int[]> peopleListInOut)
+  {
+    return peopleListInOut.Sum(Ppl => Ppl[0] - Ppl[1]);
+  }
+}
