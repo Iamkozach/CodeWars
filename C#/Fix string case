@@ -1,0 +1,42 @@
+In this Kata, you will be given a string that may have mixed uppercase 
+and lowercase letters and your task is to convert that string to either lowercase only or uppercase only based on:
+
+make as few changes as possible.
+if the string contains equal number of uppercase and lowercase letters, convert the string to lowercase.
+For example:
+
+solve("coDe") = "code". Lowercase characters > uppercase. Change only the "D" to lowercase.
+solve("CODe") = "CODE". Uppercase characters > lowecase. Change only the "e" to uppercase.
+solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
+More examples in test cases. Good luck!
+
+
+
+using System.Linq;
+
+public static string Solve(string s)
+{
+  return s.Count(char.IsLower) < s.Length / 2 ? s.ToUpper() : s.ToLower();
+}
+-----------------------------------
+
+public static string Solve(string s)
+{
+  int up = 0;
+
+  int low = 0;
+
+  for (int i = 0; i < s.Length; i++)
+  {
+      if (char.IsUpper(s[i]))
+      {
+          up += 1;
+      }
+      else
+      {
+          low += 1;
+      }
+  }
+
+  return low == up ? s.ToLower() : low < up ? s.ToUpper() : s.ToLower();
+ }
