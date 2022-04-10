@@ -26,3 +26,18 @@ public static string[] Solution(string str)
     }
     return list.ToArray();
 }
+
+----------------------------------------------------------------------
+using System;
+using System.Linq;
+
+public static string[] Solution(string str)
+{
+
+    if (str.Length % 2 == 1)
+    {
+        str += "_";
+    }
+
+    return Enumerable.Range(0, str.Length).Where(x => x % 2 == 0).Select(x => str.Substring(x, x + 1)).ToArray();
+}
