@@ -18,3 +18,10 @@ public class Kata
     public static string StringClean(string s) => Regex.Replace(s, @"[0-9]", "");
 }
 
+-----------------------------------------------------------
+using System.Linq;
+
+public class Kata
+{
+    public static string StringClean(string s) => string.Join("", s.Where(x => !char.IsNumber(x)));
+}
